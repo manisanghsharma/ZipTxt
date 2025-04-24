@@ -60,8 +60,14 @@ const CreateText = () => {
 							fontSize: '16px',
 							padding: '16px',
 							transition: 'all 0.2s ease',
+							backgroundColor: 'var(--input-bg)',
+							color: 'var(--input-text)',
 							'&:hover': {
 								borderColor: 'var(--accent-color)',
+							},
+							'& .MuiTextarea-textarea::placeholder': {
+								color: 'var(--input-text)',
+								opacity: 0.6,
 							}
 						}}
 					/>
@@ -78,6 +84,7 @@ const CreateText = () => {
 							endDecorator={<SendHorizonal size={16} />}
 							sx={{ 
 								bgcolor: 'var(--accent-color)',
+								color: 'white',
 								'&:hover': {
 									bgcolor: 'var(--accent-color)',
 									filter: 'brightness(0.9)',

@@ -2,22 +2,45 @@ import { useState, useEffect } from 'react';
 import { Sun, Moon, Github } from 'lucide-react';
 import Heading from './Heading';
 
+// Apply theme from localStorage immediately before component renders
+const getInitialTheme = () => {
+  const storedTheme = localStorage.getItem('theme');
+  if (storedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+    return true;
+  } else {
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+    return false;
+  }
+};
+
 const Layout = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // Initialize state with the result of getInitialTheme
+  const [isDarkMode, setIsDarkMode] = useState(getInitialTheme());
 
   useEffect(() => {
-    // Check for user's preference
-    const darkModePreference = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDarkMode(darkModePreference);
-    
-    if (darkModePreference) {
-      document.documentElement.classList.add('dark');
+    // This ensures the UI state matches the applied theme
+    // It runs after the initial theme has already been applied
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark' && !isDarkMode) {
+      setIsDarkMode(true);
+    } else if (storedTheme !== 'dark' && isDarkMode) {
+      setIsDarkMode(false);
     }
   }, []);
 
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    
+    if (newDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
   };
 
   return (

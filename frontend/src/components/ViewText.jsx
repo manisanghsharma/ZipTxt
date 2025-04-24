@@ -61,6 +61,7 @@ const ViewText = () => {
                     startDecorator={<ArrowLeft size={16} />}
                     sx={{ 
                         bgcolor: 'var(--accent-color)',
+                        color: 'white',
                         '&:hover': {
                             bgcolor: 'var(--accent-color)',
                             filter: 'brightness(0.9)',
@@ -105,6 +106,7 @@ const ViewText = () => {
                         startDecorator={<ArrowLeft size={16} />}
                         sx={{ 
                             borderColor: 'var(--border-color)',
+                            color: 'var(--text-primary)',
                             padding: '8px 16px',
                             fontSize: '15px',
                             fontWeight: '500',
@@ -128,6 +130,7 @@ const ViewText = () => {
                             startDecorator={<ExternalLink size={16} />}
                             sx={{ 
                                 borderColor: 'var(--border-color)',
+                                color: 'var(--text-primary)',
                                 padding: '8px 16px',
                                 fontSize: '15px',
                                 fontWeight: '500',
@@ -146,6 +149,7 @@ const ViewText = () => {
                             startDecorator={copied ? <Check size={16} /> : <Copy size={16} />}
                             sx={{ 
                                 bgcolor: copied ? 'green' : 'var(--accent-color)',
+                                color: 'white',
                                 '&:hover': {
                                     bgcolor: copied ? 'green' : 'var(--accent-color)',
                                     filter: 'brightness(0.9)',

@@ -29,6 +29,8 @@
   --accent-color: #3b82f6 !important;
   --secondary-color: #f3f4f6 !important;
   --border-color: #e5e7eb !important;
+  --input-bg: #ffffff !important;
+  --input-text: #111827 !important;
 }
 
 .dark {
@@ -37,6 +39,8 @@
   --accent-color: #3b82f6 !important;
   --secondary-color: #1f2937 !important;
   --border-color: #374151 !important;
+  --input-bg: #1f2937 !important;
+  --input-text: #f9fafb !important;
 }
 
 
