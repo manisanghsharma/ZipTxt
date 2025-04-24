@@ -16,7 +16,7 @@ const ViewText = () => {
         const getData = async() => {
             try{
                 setLoading(true);
-                const URL = `http://localhost:9000/${code}`;
+                const URL = `https://ziptxt-production.up.railway.app/${code}`;
 				const response = await axios.get(URL);
 				setText(response.data.content);
                 setLoading(false);

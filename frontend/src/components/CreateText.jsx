@@ -14,7 +14,7 @@ const CreateText = () => {
 
 		setIsLoading(true);
 		try {
-			const response = await axios.post("http://localhost:9000/", {
+			const response = await axios.post("https://ziptxt-production.up.railway.app", {
 				content: content,
 			});
 			navigate(`/${response.data.code}`);
